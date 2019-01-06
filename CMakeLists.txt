@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.12)
 project(Labyrinthe)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -6,10 +6,14 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(hdr)
 
 add_executable(Labyrinthe
-        Labyrinthe.cpp
-        src/Game.cpp hdr/Game.h
-        src/winbgi.cpp hdr/graphics.h
-        src/Robot.cpp hdr/Robot.h
-        src/RobotAvance.cpp hdr/RobotAvance.h
-        src/Terrain.cpp hdr/Terrain.h
-        )
+        hdr/Game.h
+        hdr/graphics.h
+        hdr/Robot.h
+        hdr/RobotAvance.h
+        hdr/Terrain.h
+        src/Game.cpp
+        src/Robot.cpp
+        src/RobotAvance.cpp
+        src/Terrain.cpp
+        src/winbgi.cpp
+        Labyrinthe.cpp)
