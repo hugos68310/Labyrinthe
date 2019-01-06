@@ -11,6 +11,9 @@ public:
 
 private:
     int** map; //preparation d'un tableau 2D qui sera créer dans le constructeur
+    void init();
+    void readFile();
+    void afficheTerrainBinaire();
 };
 
 

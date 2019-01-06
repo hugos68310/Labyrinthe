@@ -7,12 +7,18 @@ using namespace std;
 Terrain::Terrain():
     map{}
 {
-    //création du tableau 2D 16*16 du terrain qui representera la carte
+    init(); //initialisation du tableau 2D 16*16 du terrain qui representera la carte
+    readFile();//Ouverture d'un fichier txt qui contiendra la carte du jeu en valeurs INT
+}
+
+void Terrain::init() {
     map = new int*[16];
     for(int i = 0; i < 16; ++i)
         map[i] = new int[16];
+}
 
-    //Ouverture d'un fichier txt qui contiendra la carte du jeu en valeurs INT
+void Terrain::readFile(){
+
     fstream myFile("../prodFiles/map.txt");
 
     if(!myFile) //Si le fichier ne s'est pas ouvert
@@ -33,14 +39,19 @@ Terrain::Terrain():
             }
         }
 
-        for (int k = 0; k < 16; ++k) {
-            for (int i = 0; i < 16; ++i) {
-                cout << " " << map[k][i];
-            }
-            cout << endl;
-        }
+        afficheTerrainBinaire();
+
     }
 
+}
 
+void Terrain::afficheTerrainBinaire() { //affiche le terrain sous forme du fichier .txt
+
+    for (int k = 0; k < 16; ++k) {
+        for (int i = 0; i < 16; ++i) {
+            cout << " " << map[k][i];
+        }
+        cout << endl;
+    }
 
 }
