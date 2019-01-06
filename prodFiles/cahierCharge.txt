@@ -1,0 +1,34 @@
+1 Gestion d'un robot dans un labyrinthe
+
+- pouvoir gérer un robot dans un terrain
+
+- terrain :
+   - quadrillé avec des murs
+   - deux façons de représenter les murs :
+     - les murs sont des cases du terrain
+     - les murs sont autour des cases et les séparent
+   - pouvoir lire/sauver le terrain dans un fichier
+   - faire un programme de saisie graphique d'un terrain (avec winbgi)
+
+- robot :
+   //- un robot basique peut
+   //- détecter s'il y a un obstacle devant lui
+   //- avancer d'une case, tourner à gauche de 90°,tourner à droite de 90°
+   //- un robot avancé peut en plus détecter s'il y a un obstacle sur sa
+   //  gauche et sur sa droite
+   - faire un programme de pilotage et visualisation du robot dans un terrain
+     (avec winbgi) (affichage terrain et vue depuis le robot)
+     - le terrain doit pouvoir être donné des deux façons
+     - on doit pouvoir piloter un robot basique et un robot avancé
+
+- faire sortir le robot d'un labyrinthe : programmer les deux algorithmes
+   de sortie d'un labyrinthe suivants :
+   - algorithme main droite : se déplacer en ayant toujours un mur à sa droite
+   - algorithme de Pledge :
+     1   Aller tout droit jusqu’au mur, passer à l’instruction 2
+     2   Longer le mur par la droite (ou par la gauche, mais toujours dans
+         le même sens) jusqu’à ce que le décompte des changements de direction
+         atteigne zéro (tourner à gauche = +1, tourner à droite = -1),
+         passer à l’instruction 1 ;
+   - faire un programme qui fait sortir le robot d'un labyrinthe en
+     visualisant ses déplacements
