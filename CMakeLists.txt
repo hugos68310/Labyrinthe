@@ -6,6 +6,10 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(hdr)
 
 add_executable(Labyrinthe
-        hdr/robot.h
-        main.cpp
-        src/robot.cpp src/robotAvance.cpp hdr/robotAvance.h)
+        Labyrinthe.cpp
+        src/Game.cpp hdr/Game.h
+        src/winbgi.cpp hdr/graphics.h
+        src/Robot.cpp hdr/Robot.h
+        src/RobotAvance.cpp hdr/RobotAvance.h
+        src/Terrain.cpp hdr/Terrain.h
+        )

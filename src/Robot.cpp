@@ -1,4 +1,4 @@
-#include <robot.h>
+#include <Robot.h>
 
 robot::robot(int posX, int posY):
     d_posX{posX},

@@ -1,7 +1,4 @@
-
-#include <robotAvance.h>
-
-#include "robotAvance.h"
+#include <RobotAvance.h>
 
 robotAvance::robotAvance(int posX, int posY) : robot(posX, posY) {}
 

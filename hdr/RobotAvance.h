@@ -1,7 +1,7 @@
 #ifndef LABYRINTHE_ROBOTAVANCE_H
 #define LABYRINTHE_ROBOTAVANCE_H
 
-#include <robot.h>
+#include <Robot.h>
 
 class robotAvance : public robot{
 public:
