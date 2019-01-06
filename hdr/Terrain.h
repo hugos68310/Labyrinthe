@@ -10,7 +10,7 @@ public:
     Terrain();
 
 private:
-    int** map; //preparation d'un tableau 2D qui sera créer dans le constructeur
+    int** d_map; //preparation d'un tableau 2D qui sera créer dans le constructeur
     void init();
     void readFile();
     void afficheTerrainBinaire();
