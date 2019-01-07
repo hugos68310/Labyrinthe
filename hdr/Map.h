@@ -16,8 +16,9 @@ public:
     int getD_posYFin() const;
     int getD_posXRobot() const;
     int getD_posYRobot() const;
-    int **getD_map() const;
+    int ** getD_binaryMap() const;
     void refreshRobot(int posX,int posY);
+    const vector<cases> &getD_map() const;
 
 private:
     int** d_binaryMap;

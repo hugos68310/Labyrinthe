@@ -60,7 +60,7 @@ void map::initMap() {
             }
         }
     }
-    d_map.push_back(cases{200+19,100+19,2});
+    d_map.push_back(cases{0,0,2});
 }
 
 void map::refreshRobot(int posX, int posY) {
@@ -105,6 +105,10 @@ int map::getD_posYRobot() const {
     return d_posYRobot;
 }
 
-int **map::getD_map() const {
+int ** map::getD_binaryMap() const {
     return d_binaryMap;
+}
+
+const vector<cases> &map::getD_map() const {
+    return d_map;
 }

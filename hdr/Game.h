@@ -17,8 +17,8 @@ public:
     void closeWindow();
     void mainDroite();
     void pledge();
-private:
     map* d_map;
+private:
     robot* d_robot;
     bool d_robotAvance, d_vueTerrain; // Si d_vue Terrain=false alors on a une vue Robot
 };

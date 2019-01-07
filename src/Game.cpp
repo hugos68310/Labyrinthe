@@ -39,6 +39,7 @@ void game::controles(char pressedTouch) {
 
         case KEY_ESCAPE:
             cout << "Sortie du jeu" << endl;
+            closeWindow();
             break;
 
         case KEY_Z:

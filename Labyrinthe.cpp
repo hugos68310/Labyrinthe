@@ -9,13 +9,13 @@
 
 int main() {
 
-    game game{"map.txt"};
+    game game{"map2.txt"};
 
     char pressedTouch;
 
     int poly[8];
 
-    poly[0] = 20;
+    poly[0] = 200;
     poly[1] = 20;
     poly[2] = 20;
     poly[3] = 40;
@@ -25,8 +25,8 @@ int main() {
     poly[7] = 20;
 
     game.openWindow();
-    fillpoly(4, poly);
-
+    for(cases cases : game.d_map->getD_map())
+        cases.printCases();
     do{
 
         pressedTouch = (char) getch();

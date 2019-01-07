@@ -12,13 +12,13 @@ robot::robot(int posX, int posY, map* map):
 bool robot::wallFront() const {
     bool mur = false;
     switch (d_direction) {
-        case 0: if(d_map->getD_map()[d_posY-1][d_posX]==1) mur = true;
+        case 0: if(d_map->getD_binaryMap()[d_posY-1][d_posX]==1) mur = true;
             break;
-        case 1: if(d_map->getD_map()[d_posY][d_posX+1]==1) mur = true;
+        case 1: if(d_map->getD_binaryMap()[d_posY][d_posX+1]==1) mur = true;
             break;
-        case 2: if(d_map->getD_map()[d_posY+1][d_posX]==1) mur = true;
+        case 2: if(d_map->getD_binaryMap()[d_posY+1][d_posX]==1) mur = true;
             break;
-        case 3: if(d_map->getD_map()[d_posY][d_posX-1]==1) mur = true;
+        case 3: if(d_map->getD_binaryMap()[d_posY][d_posX-1]==1) mur = true;
             break;
     }
     if (mur){
