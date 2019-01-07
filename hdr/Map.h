@@ -14,9 +14,11 @@ public:
     int getD_posYFin() const;
     int getD_posXRobot() const;
     int getD_posYRobot() const;
+    int **getD_map() const;
 
 private:
-    int** d_map; //preparation d'un tableau 2D qui sera créer dans le constructeur
+    //preparation d'un tableau 2D qui sera créer dans le constructeur
+    int** d_map;
     void initMap();
     void readFile();
     void afficheTerrainBinaire();
