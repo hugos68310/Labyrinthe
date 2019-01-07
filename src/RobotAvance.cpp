@@ -1,8 +1,8 @@
 #include <RobotAvance.h>
-#include <Map.h>
+#include <Maps.h>
 #include <Game.h>
 
-robotAvance::robotAvance(int posX, int posY,map* map) : robot(posX, posY, map) {}
+robotAvance::robotAvance(int posX, int posY,maps* map) : robot(posX, posY, map) {}
 
 bool robotAvance::wallRight() {
     turnRight();

@@ -4,12 +4,13 @@
 #include <vector>
 #include <string>
 #include "Cases.h"
+#include "Game.h"
 
 using namespace std;
 
-class map {
+class maps {
 public:
-    map(string mapFile);
+    maps(string mapFile,game* game);
     void setXYRobot(int posX,int posY);
     void setXYFin(int posX,int posY);
     int getD_posXFin() const;
@@ -18,9 +19,10 @@ public:
     int getD_posYRobot() const;
     int ** getD_binaryMap() const;
     void refreshRobot(int posX,int posY);
-    const vector<cases> &getD_map() const;
+    const vector<cases> getD_map() const;
 
 private:
+    game* d_game;
     int** d_binaryMap;
     vector<cases> d_map;
     void initBinaryMap();

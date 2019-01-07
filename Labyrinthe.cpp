@@ -1,5 +1,5 @@
 #include <iostream>
-#include "hdr/Map.h"
+#include "Maps.h"
 #include <iostream>
 #include <graphics.h>
 #include <conio.h>

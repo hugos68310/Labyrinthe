@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include "Game.h"
-#include "Map.h"
+#include "Maps.h"
 #include "graphics.h"
 
 #define KEY_Z       122
@@ -16,13 +16,25 @@
 
 game::game(string mapFile, bool robotAvanceBool, bool vueTerrain) :
         d_robotAvance{robotAvanceBool},
-        d_vueTerrain{vueTerrain}
+        d_vueTerrain{vueTerrain},
+        d_map{},
+        d_robot{}
         {
-            d_map = new map(mapFile);
+            d_map = new maps(mapFile,this);
             if (d_robotAvance){
+
                 d_robot = new robotAvance{d_map->getD_posXRobot(),d_map->getD_posYRobot(),d_map};
             } else d_robot = new robot{d_map->getD_posXRobot(),d_map->getD_posYRobot(),d_map};
         }
+
+void game::run() {
+    char pressedTouch;
+    while (!isFinish()){
+        printMap();
+        pressedTouch = (char) getch();
+        controles(pressedTouch);
+    }
+}
 
 bool game::isFinish() const {
     return d_robot->getD_posX() == d_map->getD_posXFin() &&
@@ -115,4 +127,11 @@ void game::run() {
 
     }
 
+}
+robot *game::getD_robot() const {
+    return d_robot;
+}
+
+bool game::isD_robotAvance() const {
+    return d_robotAvance;
 }

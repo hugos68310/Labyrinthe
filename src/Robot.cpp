@@ -1,8 +1,8 @@
 #include <Robot.h>
-#include <Map.h>
+#include <Maps.h>
 #include <Game.h>
 
-robot::robot(int posX, int posY, map* map):
+robot::robot(int posX, int posY, maps* map):
     d_posX{posX},
     d_posY{posY},
     d_map{},
@@ -61,11 +61,16 @@ int robot::getD_posY() const {
 }
 
 bool robot::wallRight() {
-    game::messageBox("Vous n'avez pas le droit d'utiliser cette fonction ici !");
+    game::messageBox("Vous n'avez pas cette capacité !");
     return false;
 }
 
 bool robot::wallLeft() {
-    return wallRight();
+    game::messageBox("Vous n'avez pas cette capacité !");
+    return false;
+}
+
+int robot::getD_direction() const {
+    return d_direction;
 }
 

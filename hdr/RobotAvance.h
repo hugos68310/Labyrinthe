@@ -2,12 +2,12 @@
 #define LABYRINTHE_ROBOTAVANCE_H
 
 #include <Robot.h>
-#include "Map.h"
+#include "Maps.h"
 
 
 class robotAvance : public robot{
 public:
-    robotAvance(int posX, int posY,map* map);
+    robotAvance(int posX, int posY,maps* map);
     bool wallRight() override;
     bool wallLeft() override;
 

@@ -1,29 +1,30 @@
 #include <fstream>
 #include <iostream>
-#include <Map.h>
+#include <Maps.h>
 #include <Game.h>
 
-#include "Map.h"
+#include "Maps.h"
 
 using namespace std;
 
-map::map(string mapFile) :
+maps::maps(string mapFile,game* game) :
     d_binaryMap{}
 {
-    initBinaryMap(); //initialisation du tableau 2D "map" 16*16 du terrain qui representera la carte
+    d_game = game;
+    initBinaryMap(); //initialisation du tableau 2D "maps" 16*16 du terrain qui representera la carte
     readFile(mapFile);//Ouverture d'un fichier txt qui contiendra la carte du jeu en valeurs INT
     printBinaryMap();
     initMap();
     refreshRobot(d_posXRobot,d_posYRobot);
 }
 
-void map::initBinaryMap() {
+void maps::initBinaryMap() {
     d_binaryMap = new int*[16];
     for(int i = 0; i < 16; ++i)
         d_binaryMap[i] = new int[16];
 }
 
-void map::readFile(string mapFile) {
+void maps::readFile(string mapFile) {
     fstream myFile("../mapFiles/"+mapFile);
     if(!myFile) //Si le fichier ne s'est pas ouvert
         game::messageBox("Erreur : impossible d'ouvrir la carte");
@@ -44,7 +45,7 @@ void map::readFile(string mapFile) {
     }
 }
 
-void map::initMap() {
+void maps::initMap() {
 
     for (int i = 0; i < 16; ++i) {
         for (int j = 0; j < 16; ++j) {
@@ -60,15 +61,15 @@ void map::initMap() {
             }
         }
     }
-    d_map.push_back(cases{0,0,2});
+    d_map.push_back(cases{0,0,2,d_game});
 }
 
-void map::refreshRobot(int posX, int posY) {
+void maps::refreshRobot(int posX, int posY) {
     d_map.back().setD_left(posX*38+219);
     d_map.back().setD_top(posY*38+219);
 }
 
-void map::printBinaryMap() { //affiche le terrain sous forme du fichier .txt
+void maps::printBinaryMap() { //affiche le terrain sous forme du fichier .txt
 
     for (int k = 0; k < 16; ++k) {
         for (int i = 0; i < 16; ++i) {
@@ -79,36 +80,36 @@ void map::printBinaryMap() { //affiche le terrain sous forme du fichier .txt
 
 }
 
-void map::setXYRobot(int posX,int posY){
+void maps::setXYRobot(int posX,int posY){
     d_posXRobot=posX;
     d_posYRobot=posY;
 }
 
-void map::setXYFin(int posX, int posY) {
+void maps::setXYFin(int posX, int posY) {
     d_posXFin=posX;
     d_posYFin=posY;
 }
 
-int map::getD_posXFin() const {
+int maps::getD_posXFin() const {
     return d_posXFin;
 }
 
-int map::getD_posYFin() const {
+int maps::getD_posYFin() const {
     return d_posYFin;
 }
 
-int map::getD_posXRobot() const {
+int maps::getD_posXRobot() const {
     return d_posXRobot;
 }
 
-int map::getD_posYRobot() const {
+int maps::getD_posYRobot() const {
     return d_posYRobot;
 }
 
-int ** map::getD_binaryMap() const {
+int ** maps::getD_binaryMap() const {
     return d_binaryMap;
 }
 
-const vector<cases> &map::getD_map() const {
+const vector<cases> &maps::getD_map() const {
     return d_map;
 }

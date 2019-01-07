@@ -6,13 +6,30 @@
 cases::cases(int top, int left, int typeCase):
     d_top{top},
     d_left{left},
-    d_typeCase{typeCase}
+    d_typeCase{typeCase},
+    d_game{0}
+{}
+
+cases::cases(int top, int left, int typeCase, game *game):
+    d_top{top},
+    d_left{left},
+    d_typeCase{typeCase},
+    d_game{game}
 {}
 
 void cases::printCases() {
     if (d_typeCase==2){
         setcolor(RED);
         fillellipse(d_left,d_top,8,8);
+        if (d_game->isD_robotAvance()){
+            setcolor(BLUE);
+        } else setcolor(RED);
+        switch (d_game->getD_robot()->getD_direction()){
+            case 0:line(d_left,d_top,d_left,d_top-10);
+            case 1:line(d_left,d_top,d_left,d_top+10);
+            case 2:line(d_left,d_top,d_left+10,d_top);
+            case 3:line(d_left,d_top,d_left,d_top-10);
+        }
     } else{
         int poly[8];
         poly[0] = d_left;
@@ -38,10 +55,10 @@ void cases::printCases() {
     }
 }
 
+
 int cases::getTypeCase() const {
     return d_typeCase;
 }
-
 
 void cases::setD_top(int d_top) {
     cases::d_top = d_top;
