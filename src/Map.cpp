@@ -45,24 +45,22 @@ void map::readFile(string mapFile) {
 }
 
 void map::initMap() {
-    cases tempCase = null;
+
     for (int i = 0; i < 16; ++i) {
         for (int j = 0; j < 16; ++j) {
             switch (d_binaryMap[i][j]){
-                case 0: tempCase = new cases(200+i*38,200+j*38,0);
+                case 0: d_map.push_back(cases{200+i*38,200+j*38,0});
                     break;
-                case 1: tempCase = new cases(200+i*38,200+j*38,1);
+                case 1: d_map.push_back(cases{200+i*38,200+j*38,1});
                     break;
-                case 2: tempCase = new cases(200+i*38,200+j*38,0);
+                case 2: d_map.push_back(cases{200+i*38,200+j*38,0});
                     break;
-                case 3: tempCase = new cases(200+i*38,200+j*38,3);
+                case 3: d_map.push_back(cases{200+i*38,200+j*38,3});
                     break;
             }
-            d_map.push_back(tempCase);
         }
     }
-    tempCase = new cases(200+19,100+19,2);
-    d_map.push_back(tempCase);
+    d_map.push_back(cases{200+19,100+19,2});
 }
 
 void map::refreshRobot(int posX, int posY) {
