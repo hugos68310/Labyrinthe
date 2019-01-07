@@ -16,15 +16,3 @@
      (avec winbgi) (affichage terrain et vue depuis le robot)
    //- le terrain doit pouvoir être donné des deux façons
    //- on doit pouvoir piloter un robot basique et un robot avancé
-
-- faire sortir le robot d'un labyrinthe : programmer les deux algorithmes
-   de sortie d'un labyrinthe suivants :
-   //- algorithme main droite : se déplacer en ayant toujours un mur à sa droite
-   - algorithme de Pledge :
-     1   Aller tout droit jusqu’au mur, passer à l’instruction 2
-     2   Longer le mur par la droite (ou par la gauche, mais toujours dans
-         le même sens) jusqu’à ce que le décompte des changements de direction
-         atteigne zéro (tourner à gauche = +1, tourner à droite = -1),
-         passer à l’instruction 1 ;
-   - faire un programme qui fait sortir le robot d'un labyrinthe en
-     visualisant ses déplacements

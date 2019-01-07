@@ -7,7 +7,7 @@ class maps;
 class robot{
 public:
     robot(int posX, int posY, maps* map );
-    bool wallFront() const;
+    bool wallFront(bool move= false) const;
     bool move() ;
     void turnLeft() ;
     void turnRight() ;

@@ -9,7 +9,7 @@ robot::robot(int posX, int posY, maps* map):
     d_direction{0}
 {d_map=map;}
 
-bool robot::wallFront() const {
+bool robot::wallFront(bool move) const {
     bool mur = false;
     switch (d_direction) {
         case 0: if(d_map->getD_binaryMap()[d_posY-1][d_posX]==1) mur = true;
@@ -25,8 +25,10 @@ bool robot::wallFront() const {
         game::messageBox("Il y a un mur en face !");
         return true;
     }
-    game::messageBox("Il n'y a pas de mur en face !");
-    return false;
+    if (!move) {
+        game::messageBox("Il n'y a pas de mur en face !");
+        return false;
+    }
 }
 
 void robot::turnLeft() {
@@ -38,7 +40,7 @@ void robot::turnRight() {
 }
 
 bool robot::move() {
-    if (!wallFront()) {
+    if (!wallFront(true)) {
         switch (d_direction) {
             case 0: d_posY--;
                 break;
@@ -49,11 +51,10 @@ bool robot::move() {
             case 3: d_posX--;
                 break;
         }
+        game::messageBox(" ");
         return true;
-    } else{
-        game::messageBox("Il y a un mur devant !");
-        return false;
     }
+    return false;
 }
 
 int robot::getD_posX() const {

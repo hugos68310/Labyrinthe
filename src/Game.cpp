@@ -204,8 +204,6 @@ void game::afficheCommandes(){
 
     test = "|P| Mode Pledge";
     outtextxy(20, 500, test.c_str());
-
-
 }
 
 void game::openWindow() {
