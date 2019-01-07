@@ -1,29 +1,30 @@
 #include <fstream>
 #include <iostream>
 #include <Map.h>
+#include <Game.h>
 
 #include "Map.h"
 
 using namespace std;
 
-map::map():
-    d_map{}
+map::map(string mapFile) :
+    d_binaryMap{}
 {
-    initMap(); //initialisation du tableau 2D "map" 16*16 du terrain qui representera la carte
-    readFile();//Ouverture d'un fichier txt qui contiendra la carte du jeu en valeurs INT
-    afficheTerrainBinaire();
+    initBinaryMap(); //initialisation du tableau 2D "map" 16*16 du terrain qui representera la carte
+    readFile(mapFile);//Ouverture d'un fichier txt qui contiendra la carte du jeu en valeurs INT
+    printBinaryMap();
 }
 
-void map::initMap() {
-    d_map = new int*[16];
+void map::initBinaryMap() {
+    d_binaryMap = new int*[16];
     for(int i = 0; i < 16; ++i)
-        d_map[i] = new int[16];
+        d_binaryMap[i] = new int[16];
 }
 
-void map::readFile(){
-    fstream myFile("../prodFiles/map.txt");
+void map::readFile(string mapFile) {
+    fstream myFile("../mapFiles/"+mapFile);
     if(!myFile) //Si le fichier ne s'est pas ouvert
-        cout << "Erreur : impossible d'ouvrir la carte" << endl;
+        game::message("Erreur : impossible d'ouvrir la carte");
     else{
         int value;
         for (int i = 0; i < 16; ++i) { //On ajoute au tableau 2D les valeurs collectées
@@ -35,17 +36,17 @@ void map::readFile(){
                 if(value==3){
                     setXYFin(j,i);
                 }
-                d_map[i][j] = value;
+                d_binaryMap[i][j] = value;
             }
         }
     }
 }
 
-void map::afficheTerrainBinaire() { //affiche le terrain sous forme du fichier .txt
+void map::printBinaryMap() { //affiche le terrain sous forme du fichier .txt
 
     for (int k = 0; k < 16; ++k) {
         for (int i = 0; i < 16; ++i) {
-            cout << " " << d_map[k][i];
+            cout << " " << d_binaryMap[k][i];
         }
         cout << endl;
     }
@@ -79,5 +80,5 @@ int map::getD_posYRobot() const {
 }
 
 int **map::getD_map() const {
-    return d_map;
+    return d_binaryMap;
 }

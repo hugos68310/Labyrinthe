@@ -9,14 +9,15 @@ using namespace std;
 
 class game {
 public:
-    game(bool robotAvance=false,bool vueTerrain=true);
+    game(string mapFile, bool robotAvanceBool = false, bool vueTerrain = true);
     bool isFinish() const;
+    static void message(string message);
     void mainDroite();
     void pledge();
 private:
+    map* d_map;
+    robot* d_robot;
     bool d_robotAvance, d_vueTerrain; // Si d_vueTerrain=false alors on a une vue Robot
-    map d_map;
-    robot d_robot;
 };
 
 

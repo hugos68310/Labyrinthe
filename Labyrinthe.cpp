@@ -14,7 +14,7 @@
 
 int main() {
 
-    map map{};
+    map map{"map.txt"};
 
     char c;
 

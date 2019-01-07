@@ -1,24 +1,31 @@
 #include <Robot.h>
 #include <Map.h>
+#include <Game.h>
 
-robot::robot(int posX, int posY, map map):
+robot::robot(int posX, int posY, map* map):
     d_posX{posX},
     d_posY{posY},
     d_map{},
     d_direction{0}
-{d_map=&map;}
+{d_map=map;}
 
 bool robot::wallFront() const {
+    bool mur = false;
     switch (d_direction) {
-        case 0: if(d_map->getD_map()[d_posY-1][d_posX]==1) return true;
+        case 0: if(d_map->getD_map()[d_posY-1][d_posX]==1) mur = true;
             break;
-        case 1: if(d_map->getD_map()[d_posY][d_posX+1]==1) return true;
+        case 1: if(d_map->getD_map()[d_posY][d_posX+1]==1) mur = true;
             break;
-        case 2: if(d_map->getD_map()[d_posY+1][d_posX]==1) return true;
+        case 2: if(d_map->getD_map()[d_posY+1][d_posX]==1) mur = true;
             break;
-        case 3: if(d_map->getD_map()[d_posY][d_posX-1]==1) return true;
+        case 3: if(d_map->getD_map()[d_posY][d_posX-1]==1) mur = true;
             break;
     }
+    if (mur){
+        game::message("Il y a pas de mur enface !");
+        return true;
+    }
+    game::message("Il n y a pas de mur enface !");
     return false;
 }
 
@@ -42,7 +49,7 @@ void robot::move() {
             case 3: d_posX--;
                 break;
         }
-    }
+    } else game::message("Il y a un mur devant !");
 }
 
 int robot::getD_posX() const {

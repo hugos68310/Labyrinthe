@@ -2,12 +2,14 @@
 #define LABYRINTHE_TERRAIN_H
 
 #include <vector>
+#include <string>
+#include "Cases.h"
 
 using namespace std;
 
 class map {
 public:
-    map();
+    map(string mapFile);
     void setXYRobot(int posX,int posY);
     void setXYFin(int posX,int posY);
     int getD_posXFin() const;
@@ -18,10 +20,13 @@ public:
 
 private:
     //preparation d'un tableau 2D qui sera créer dans le constructeur
-    int** d_map;
+    int** d_binaryMap;
+    vector<cases> d_map;
+    void initBinaryMap();
     void initMap();
-    void readFile();
-    void afficheTerrainBinaire();
+    void refreshMap();
+    void readFile(string mapFile);
+    void printBinaryMap();
     int d_posXFin,d_posYFin,d_posXRobot,d_posYRobot;
 };
 
