@@ -2,16 +2,21 @@
 #define LABYRINTHE_GAME_H
 
 #include "Robot.h"
+#include "Map.h"
+#include <string>
 
+using namespace std;
 
 class game {
 public:
-    game();
-    void init();
+    game(bool robotAvance=false,bool vueTerrain=true);
+    void vueGame();
     void mainDroite();
     void pledge();
 private:
-    //robot d_robot;
+    bool d_robotAvance, d_vueTerrain; // Si d_vueTerrain=false alors on a une vue Robot
+    map d_map;
+    robot d_robot;
 };
 
 

@@ -1,13 +1,9 @@
-1 Gestion d'un robot dans un labyrinthe
-
-- pouvoir gérer un robot dans un terrain
-
 - terrain :
-   - quadrillé avec des murs
-   - deux façons de représenter les murs :
-     - les murs sont des cases du terrain
-     - les murs sont autour des cases et les séparent
-   - pouvoir lire/sauver le terrain dans un fichier
+   //- quadrillé avec des murs
+   //- deux façons de représenter les murs :
+   //- les murs sont des cases du terrain
+   //- les murs sont autour des cases et les séparent
+   //- pouvoir lire/sauver le terrain dans un fichier
    - faire un programme de saisie graphique d'un terrain (avec winbgi)
 
 - robot :
@@ -18,7 +14,7 @@
    //  gauche et sur sa droite
    - faire un programme de pilotage et visualisation du robot dans un terrain
      (avec winbgi) (affichage terrain et vue depuis le robot)
-     - le terrain doit pouvoir être donné des deux façons
+   //- le terrain doit pouvoir être donné des deux façons
      - on doit pouvoir piloter un robot basique et un robot avancé
 
 - faire sortir le robot d'un labyrinthe : programmer les deux algorithmes

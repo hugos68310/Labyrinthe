@@ -10,10 +10,10 @@ add_executable(Labyrinthe
         hdr/graphics.h
         hdr/Robot.h
         hdr/RobotAvance.h
-        hdr/Terrain.h
+        hdr/Map.h
         src/Game.cpp
         src/Robot.cpp
         src/RobotAvance.cpp
-        src/Terrain.cpp
+        src/Map.cpp
         src/winbgi.cpp
         Labyrinthe.cpp)
