@@ -2,12 +2,14 @@
 #define LABYRINTHE_ROBOTAVANCE_H
 
 #include <Robot.h>
+#include "Map.h"
+
 
 class robotAvance : public robot{
 public:
-    robotAvance(int posX, int posY);
-    bool wallRight() const;
-    bool wallLeft() const;
+    robotAvance(int posX, int posY,map map);
+    bool wallRight() ;
+    bool wallLeft() ;
 
 };
 

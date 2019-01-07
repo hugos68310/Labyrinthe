@@ -77,3 +77,7 @@ int map::getD_posXRobot() const {
 int map::getD_posYRobot() const {
     return d_posYRobot;
 }
+
+int **map::getD_map() const {
+    return d_map;
+}

@@ -10,7 +10,7 @@ using namespace std;
 class game {
 public:
     game(bool robotAvance=false,bool vueTerrain=true);
-    void vueGame();
+    bool isFinish() const;
     void mainDroite();
     void pledge();
 private:
