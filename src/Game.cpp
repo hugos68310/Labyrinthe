@@ -12,6 +12,8 @@
 #define KEY_D       100
 #define KEY_E       101
 #define KEY_S       115
+#define KEY_M       109
+#define KEY_P       112
 #define KEY_ESCAPE  27
 
 game::game(string mapFile, bool robotAvanceBool, bool vueTerrain) :
@@ -45,7 +47,63 @@ void game::run() {
             controles(pressedTouch);
         }
     }
+}
 
+void game::mainDroite() {
+    while(!isFinish()){
+        d_robot->turnRight();
+        printMap();
+        delay(100);
+        while (d_robot->wallFront()){
+            d_robot->turnLeft();
+            printMap();
+            delay(100);
+        }
+        d_robot->move();
+        d_map->refreshRobot(d_robot->getD_posX(), d_robot->getD_posY());
+        printMap();
+        delay(100);
+    }
+}
+
+void game::pledge() {
+    while(!isFinish()){
+        while (!d_robot->wallFront() && !isFinish()){
+            d_robot->move();
+            d_map->refreshRobot(d_robot->getD_posX(), d_robot->getD_posY());
+            printMap();
+            delay(100);
+        }
+        if (!isFinish()) {
+
+
+            int temp = 0;
+            d_robot->turnLeft();
+            printMap();
+            delay(100);
+            d_robot->move();
+            d_map->refreshRobot(d_robot->getD_posX(), d_robot->getD_posY());
+            printMap();
+            delay(100);
+            temp++;
+            while (temp != 0 && !isFinish()) {
+                d_robot->turnRight();
+                temp--;
+                printMap();
+                delay(100);
+                while (d_robot->wallFront()) {
+                    d_robot->turnLeft();
+                    temp++;
+                    printMap();
+                    delay(100);
+                }
+                d_robot->move();
+                d_map->refreshRobot(d_robot->getD_posX(), d_robot->getD_posY());
+                printMap();
+                delay(100);
+            }
+        }
+    }
 }
 
 bool game::isFinish() const {
@@ -103,7 +161,14 @@ void game::controles(char pressedTouch) {
             if(d_robotAvance)
                 d_robot->wallLeft();
             break;
-
+        case KEY_M:
+            cout << "Mode Main Droite activé" << endl;
+            mainDroite();
+            break;
+        case KEY_P:
+            cout << "Mode Pledge activé" << endl;
+            pledge();
+            break;
         default:
             cout << "commande inconnue" << endl;
             break;
