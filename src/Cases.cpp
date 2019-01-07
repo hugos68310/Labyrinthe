@@ -26,9 +26,13 @@ void cases::printCases() {
         } else setcolor(RED);
         switch (d_game->getD_robot()->getD_direction()){
             case 0:line(d_left,d_top,d_left,d_top-10);
-            case 1:line(d_left,d_top,d_left,d_top+10);
-            case 2:line(d_left,d_top,d_left+10,d_top);
-            case 3:line(d_left,d_top,d_left,d_top-10);
+                break;
+            case 1:line(d_left,d_top,d_left+10,d_top);
+                break;
+            case 2:line(d_left,d_top,d_left,d_top+10);
+                break;
+            case 3:line(d_left,d_top,d_left-10,d_top);
+                break;
         }
     } else{
         int poly[8];

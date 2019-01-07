@@ -35,6 +35,7 @@ void game::run() {
         printMap();
         pressedTouch = (char) getch();
         controles(pressedTouch);
+        clearviewport();
     }
 }
 
