@@ -7,9 +7,10 @@
 #define KEY_ESCAPE  27
 #define KEY_Z       122
 #define KEY_A       97
-#define KEY_RIGHT   77
-#define KEY_LEFT    75
-#define KEY_UP      72
+#define KEY_Q       113
+#define KEY_D       100
+#define KEY_E       101
+#define KEY_S       115
 
 
 int main() {
@@ -18,33 +19,27 @@ int main() {
 
     char c;
 
+    int poly[8];
+
+    poly[0] = 20;
+    poly[1] = 20;
+    poly[2] = 20;
+    poly[3] = 40;
+    poly[4] = 40;
+    poly[5] = 40;
+    poly[6] = 40;
+    poly[7] = 20;
+
+
     opengraphsize(1920, 1080);
+
+    setcolor(16777215);
+    fillpoly(4, poly);
 
     do{
 
         c = (char) getch();
 
-        if(c == 0){
-            c = (char) getch();
-            switch(c){
-
-                case KEY_RIGHT:
-                    cout << "tourne à droite" << endl;
-                    break;
-
-                case KEY_LEFT:
-                    cout << "tourne à gauche" << endl;
-                    break;
-
-                case KEY_UP:
-                    cout << "Avance" << endl;
-                    break;
-
-                default:
-                    cout << "commande inconnue" << endl;
-                    break;
-            }
-        }else {
             switch(c){
 
                 case KEY_ESCAPE:
@@ -52,7 +47,23 @@ int main() {
                     break;
 
                 case KEY_Z:
-                    cout << "regarde si il y a un mur à droite" << endl;
+                    cout << "Avance" << endl;
+                    break;
+
+                case KEY_Q:
+                    cout << "Tourne à gauche" << endl;
+                    break;
+
+                case KEY_S:
+                    cout << "Touche S" << endl;
+                    break;
+
+                case KEY_D:
+                    cout << "Tourne à droite" << endl;
+                    break;
+
+                case KEY_E:
+                    cout << "Regarde s'il y a un mur à droite" << endl;
                     break;
 
                 case KEY_A:
@@ -63,7 +74,7 @@ int main() {
                     cout << "commande inconnue" << endl;
                     break;
             }
-        }
+
     }while (c != KEY_ESCAPE);
 
     closegraph();
