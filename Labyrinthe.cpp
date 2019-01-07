@@ -2,6 +2,7 @@
 #include "hdr/Map.h"
 #include <iostream>
 #include <graphics.h>
+#include <conio.h>
 
 #define KEY_ESCAPE  27
 #define KEY_Z       122
@@ -12,7 +13,7 @@
 
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
     map map{};
 
     char c;
@@ -23,33 +24,9 @@ int main() {
 
         c = (char) getch();
 
-        if(c != 0){
-
-            switch(c){
-                case KEY_ESCAPE:
-                    cout << "Sortie du jeu" << endl;
-                    break;
-
-                case KEY_Z:
-                    cout << "regarde si il y a un mur à droite" << endl;
-                    break;
-
-                case KEY_A:
-                    cout << "regarde s'il ya un mur à gauche" << endl;
-                    break;
-
-                default:
-                    cout << "commande inconnue" << endl;
-                    break;
-            }
-
-        }
-
-        else{ //Si on utilise des fleches, le code ASCII retourné en premier est égal à 0, il faut donc refaire un getch pour avoir le code d'une fleche
-
+        if(c == 0){
             c = (char) getch();
-
-            switch (c) {
+            switch(c){
 
                 case KEY_RIGHT:
                     cout << "tourne à droite" << endl;
@@ -67,12 +44,27 @@ int main() {
                     cout << "commande inconnue" << endl;
                     break;
             }
+        }else {
+            switch(c){
+
+                case KEY_ESCAPE:
+                    cout << "Sortie du jeu" << endl;
+                    break;
+
+                case KEY_Z:
+                    cout << "regarde si il y a un mur à droite" << endl;
+                    break;
+
+                case KEY_A:
+                    cout << "regarde s'il ya un mur à gauche" << endl;
+                    break;
+
+                default:
+                    cout << "commande inconnue" << endl;
+                    break;
+            }
         }
-
-
-
-    }
-    while (c != KEY_ESCAPE);
+    }while (c != KEY_ESCAPE);
 
     closegraph();
 
