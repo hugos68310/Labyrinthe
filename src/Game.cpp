@@ -29,8 +29,13 @@ bool game::isFinish() const {
     d_robot->getD_posY()==d_map->getD_posYFin();
 }
 
-void game::message(string message) {
-    cout<<message<<endl;
+void game::messageBox(string message) {
+    char* text;
+    clearviewport();
+    for(int i = 0; i < message.size(); i++)
+        text[i] = message[i];
+    settextstyle(TRIPLEX_FONT, HORIZ_DIR, 2);
+    outtextxy(20, 20, text);
 }
 
 void game::controles(char pressedTouch) {
@@ -52,10 +57,12 @@ void game::controles(char pressedTouch) {
 
         case KEY_S:
             cout << "Avancer" << endl;
+            messageBox("test");
             break;
 
         case KEY_D:
             cout << "Tourne à droite" << endl;
+            messageBox("NUKE");
             break;
 
         case KEY_E:

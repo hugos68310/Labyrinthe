@@ -26,7 +26,7 @@ void map::initBinaryMap() {
 void map::readFile(string mapFile) {
     fstream myFile("../mapFiles/"+mapFile);
     if(!myFile) //Si le fichier ne s'est pas ouvert
-        game::message("Erreur : impossible d'ouvrir la carte");
+        game::messageBox("Erreur : impossible d'ouvrir la carte");
     else{
         int value;
         for (int i = 0; i < 16; ++i) { //On ajoute au tableau 2D les valeurs collectées
