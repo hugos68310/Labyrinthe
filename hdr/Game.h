@@ -4,7 +4,8 @@
 #include "Robot.h"
 #include "Maps.h"
 #include <string>
-
+class maps;
+class robot;
 using namespace std;
 
 class game {

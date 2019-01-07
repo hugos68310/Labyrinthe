@@ -5,7 +5,7 @@
 #include <string>
 #include "Cases.h"
 #include "Game.h"
-
+class cases;
 using namespace std;
 
 class maps {

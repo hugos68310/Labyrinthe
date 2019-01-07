@@ -3,7 +3,7 @@
 
 #include <vector>
 #include "Maps.h"
-
+class maps;
 class robot{
 public:
     robot(int posX, int posY, maps* map );

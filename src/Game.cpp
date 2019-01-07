@@ -29,7 +29,9 @@ game::game(string mapFile, bool robotAvanceBool, bool vueTerrain) :
 
 void game::run() {
     char pressedTouch;
-    while (!isFinish()){
+    openWindow();
+
+    while(!isFinish()){
         printMap();
         pressedTouch = (char) getch();
         controles(pressedTouch);
@@ -112,22 +114,6 @@ void game::printMap() {
         cases.printCases();
 }
 
-void game::run() {
-
-    openWindow();
-
-    char pressedTouch;
-    printMap();
-
-    while(!isFinish()){
-
-        pressedTouch = (char) getch();
-
-        controles(pressedTouch);
-
-    }
-
-}
 robot *game::getD_robot() const {
     return d_robot;
 }

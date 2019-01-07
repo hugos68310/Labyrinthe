@@ -110,6 +110,6 @@ int ** maps::getD_binaryMap() const {
     return d_binaryMap;
 }
 
-const vector<cases> &maps::getD_map() const {
+const vector<cases> maps::getD_map() const {
     return d_map;
 }
