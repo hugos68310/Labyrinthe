@@ -12,6 +12,7 @@ public:
     game(string mapFile, bool robotAvanceBool = false, bool vueTerrain = true);
     bool isFinish() const;
     static void message(string message);
+    void controles(char pressedTouch);
     void mainDroite();
     void pledge();
 private:
