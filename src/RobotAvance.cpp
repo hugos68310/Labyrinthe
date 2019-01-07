@@ -8,10 +8,10 @@ bool robotAvance::wallRight() {
     turnRight();
     if (wallFront()){
         turnLeft();
-        game::message("Pas de mur à droite !");
+        game::messageBox("Pas de mur à droite !");
         return true;
     }
-    game::message("Mur à droite !");
+    game::messageBox("Mur à droite !");
     turnLeft();
     return false;
 }
@@ -20,10 +20,10 @@ bool robotAvance::wallLeft() {
     turnLeft();
     if (wallFront()){
         turnRight();
-        game::message("Pas de mur à gauche !");
+        game::messageBox("Pas de mur à gauche !");
         return true;
     }
-    game::message("Mur à gauche !");
+    game::messageBox("Mur à gauche !");
     turnRight();
     return false;
 }

@@ -34,8 +34,6 @@ int main() {
         game.controles(pressedTouch);
 
 
-
-
     }while (pressedTouch != KEY_ESCAPE);
 
     game.closeWindow();

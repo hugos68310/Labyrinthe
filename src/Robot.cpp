@@ -22,10 +22,10 @@ bool robot::wallFront() const {
             break;
     }
     if (mur){
-        game::message("Il y a pas de mur enface !");
+        game::messageBox("Il y a pas de mur enface !");
         return true;
     }
-    game::message("Il n y a pas de mur enface !");
+    game::messageBox("Il n y a pas de mur enface !");
     return false;
 }
 
@@ -49,7 +49,7 @@ void robot::move() {
             case 3: d_posX--;
                 break;
         }
-    } else game::message("Il y a un mur devant !");
+    } else game::messageBox("Il y a un mur devant !");
 }
 
 int robot::getD_posX() const {
