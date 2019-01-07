@@ -49,24 +49,29 @@ void game::controles(char pressedTouch) {
 
         case KEY_Z:
             cout << "Regarde s'il y a un mur devant" << endl;
+            d_robot->wallFront();
             break;
 
         case KEY_Q:
             cout << "Tourne à gauche" << endl;
+            d_robot->turnLeft();
             break;
 
         case KEY_S:
             cout << "Avancer" << endl;
-            messageBox("test");
+            d_robot->move();
             break;
 
         case KEY_D:
             cout << "Tourne à droite" << endl;
-            messageBox("NUKE");
+            d_robot->turnRight();
             break;
 
         case KEY_E:
-            cout << "Regarde s'il y a un mur à droite" << endl;
+            if(d_robotAvance) {
+                cout << "Regarde s'il y a un mur à droite" << endl;
+                //d_robot->wallRight();
+            }
             break;
 
         case KEY_A:
@@ -78,6 +83,8 @@ void game::controles(char pressedTouch) {
             break;
     }
 
+    //d_map->refreshRobot();
+
 }
 
 void game::openWindow() {
@@ -86,4 +93,24 @@ void game::openWindow() {
 
 void game::closeWindow() {
     closegraph();
+}
+
+void game::printMap() {
+    for(cases cases : d_map->getD_map())
+        cases.printCases();
+}
+
+void game::run() {
+
+    char pressedTouch;
+    printMap();
+
+    while(!isFinish()){
+
+        pressedTouch = (char) getch();
+
+        controles(pressedTouch);
+
+    }
+
 }

@@ -22,10 +22,10 @@ bool robot::wallFront() const {
             break;
     }
     if (mur){
-        game::messageBox("Il y a pas de mur enface !");
+        game::messageBox("Il y a un mur en face !");
         return true;
     }
-    game::messageBox("Il n y a pas de mur enface !");
+    game::messageBox("Il n'y a pas de mur en face !");
     return false;
 }
 

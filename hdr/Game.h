@@ -17,6 +17,8 @@ public:
     void closeWindow();
     void mainDroite();
     void pledge();
+    void run();
+    void printMap();
     map* d_map;
 private:
     robot* d_robot;
