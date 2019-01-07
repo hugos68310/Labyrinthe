@@ -30,21 +30,21 @@ bool robot::wallFront() const {
 }
 
 void robot::turnLeft() {
-    d_direction = (d_direction+1)%4;
+    d_direction = (d_direction+3)%4;
 }
 
 void robot::turnRight() {
-    d_direction = (d_direction+3)%4;
+    d_direction = (d_direction+1)%4;
 }
 
 void robot::move() {
     if (!wallFront()) {
         switch (d_direction) {
-            case 0: d_posY++;
+            case 0: d_posY--;
                 break;
             case 1: d_posX++;
                 break;
-            case 2: d_posY--;
+            case 2: d_posY++;
                 break;
             case 3: d_posX--;
                 break;
