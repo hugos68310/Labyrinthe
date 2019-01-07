@@ -20,7 +20,7 @@ public:
 private:
     map* d_map;
     robot* d_robot;
-    bool d_robotAvance, d_vueTerrain; // Si d_vueTerrain=false alors on a une vue Robot
+    bool d_robotAvance, d_vueTerrain; // Si d_vue Terrain=false alors on a une vue Robot
 };
 
 

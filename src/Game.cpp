@@ -42,7 +42,7 @@ void game::controles(char pressedTouch) {
             break;
 
         case KEY_Z:
-            cout << "Avance" << endl;
+            cout << "Regarde s'il y a un mur devant" << endl;
             break;
 
         case KEY_Q:
@@ -50,7 +50,7 @@ void game::controles(char pressedTouch) {
             break;
 
         case KEY_S:
-            cout << "Touche S" << endl;
+            cout << "Avancer" << endl;
             break;
 
         case KEY_D:
@@ -73,7 +73,7 @@ void game::controles(char pressedTouch) {
 }
 
 void game::openWindow() {
-    opengraphsize(1920, 1080);
+    opengraphsize(1000, 1000);
 }
 
 void game::closeWindow() {

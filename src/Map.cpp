@@ -13,6 +13,8 @@ map::map(string mapFile) :
     initBinaryMap(); //initialisation du tableau 2D "map" 16*16 du terrain qui representera la carte
     readFile(mapFile);//Ouverture d'un fichier txt qui contiendra la carte du jeu en valeurs INT
     printBinaryMap();
+    initMap();
+    refreshRobot(d_posXRobot,d_posYRobot);
 }
 
 void map::initBinaryMap() {
@@ -40,6 +42,32 @@ void map::readFile(string mapFile) {
             }
         }
     }
+}
+
+void map::initMap() {
+    cases tempCase = null;
+    for (int i = 0; i < 16; ++i) {
+        for (int j = 0; j < 16; ++j) {
+            switch (d_binaryMap[i][j]){
+                case 0: tempCase = new cases(200+i*38,200+j*38,0);
+                    break;
+                case 1: tempCase = new cases(200+i*38,200+j*38,1);
+                    break;
+                case 2: tempCase = new cases(200+i*38,200+j*38,0);
+                    break;
+                case 3: tempCase = new cases(200+i*38,200+j*38,3);
+                    break;
+            }
+            d_map.push_back(tempCase);
+        }
+    }
+    tempCase = new cases(200+19,100+19,2);
+    d_map.push_back(tempCase);
+}
+
+void map::refreshRobot(int posX, int posY) {
+    d_map.back().setD_left(posX*38+219);
+    d_map.back().setD_top(posY*38+219);
 }
 
 void map::printBinaryMap() { //affiche le terrain sous forme du fichier .txt
