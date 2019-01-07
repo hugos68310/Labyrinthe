@@ -9,7 +9,7 @@
 
 int main() {
 
-    game game{"map2.txt", true};
+    game game{"map1.txt", true};
 
     game.run();
 
