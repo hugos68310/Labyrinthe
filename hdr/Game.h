@@ -13,6 +13,8 @@ public:
     bool isFinish() const;
     static void message(string message);
     void controles(char pressedTouch);
+    void openWindow();
+    void closeWindow();
     void mainDroite();
     void pledge();
 private:

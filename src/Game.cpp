@@ -4,6 +4,7 @@
 
 #include "Game.h"
 #include "Map.h"
+#include "graphics.h"
 
 #define KEY_Z       122
 #define KEY_A       97
@@ -71,3 +72,10 @@ void game::controles(char pressedTouch) {
 
 }
 
+void game::openWindow() {
+    opengraphsize(1920, 1080);
+}
+
+void game::closeWindow() {
+    closegraph();
+}

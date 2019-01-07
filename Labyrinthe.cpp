@@ -24,8 +24,7 @@ int main() {
     poly[6] = 40;
     poly[7] = 20;
 
-
-    opengraphsize(1920, 1080);
+    game.openWindow();
 
     setcolor(16777215);
     fillpoly(4, poly);
@@ -38,7 +37,7 @@ int main() {
 
     }while (pressedTouch != KEY_ESCAPE);
 
-    closegraph();
+    game.closeWindow();
 
     return 0;
     //TODO Faire une fonction de message fenetre;
