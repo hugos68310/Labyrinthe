@@ -50,3 +50,7 @@ void Terrain::afficheTerrainBinaire() { //affiche le terrain sous forme du fichi
     }
 
 }
+
+int **Terrain::getMap() const {
+    return d_map;
+}

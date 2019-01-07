@@ -8,12 +8,13 @@ using namespace std;
 class Terrain {
 public:
     Terrain();
+    int** getMap() const;
 
 private:
     int** d_map; //preparation d'un tableau 2D qui sera créer dans le constructeur
     void init();
     void readFile();
-    void afficheTerrainBinaire();
+    void afficheTerrainBinaire(); //pour debug seulement
 };
 
 
