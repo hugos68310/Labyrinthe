@@ -8,8 +8,8 @@
 class robotAvance : public robot{
 public:
     robotAvance(int posX, int posY,map* map);
-    bool wallRight() ;
-    bool wallLeft() ;
+    bool wallRight() override;
+    bool wallLeft() override;
 
 };
 

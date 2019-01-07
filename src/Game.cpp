@@ -30,8 +30,7 @@ bool game::isFinish() const {
 }
 
 void game::messageBox(string message) {
-    char* text;
-    clearviewport();
+    char text[message.size()];
     for(int i = 0; i < message.size(); i++)
         text[i] = message[i];
     settextstyle(TRIPLEX_FONT, HORIZ_DIR, 2);
@@ -68,14 +67,15 @@ void game::controles(char pressedTouch) {
             break;
 
         case KEY_E:
-            if(d_robotAvance) {
-                cout << "Regarde s'il y a un mur à droite" << endl;
-                //d_robot->wallRight();
-            }
+            cout << "Regarde s'il y a un mur à droite" << endl;
+            if(d_robotAvance)
+                d_robot->wallRight();
             break;
 
         case KEY_A:
             cout << "regarde s'il ya un mur à gauche" << endl;
+            if(d_robotAvance)
+                d_robot->wallLeft();
             break;
 
         default:
@@ -83,7 +83,7 @@ void game::controles(char pressedTouch) {
             break;
     }
 
-    //d_map->refreshRobot();
+    d_map->refreshRobot(d_robot->getD_posX(), d_robot->getD_posY());
 
 }
 
@@ -101,6 +101,8 @@ void game::printMap() {
 }
 
 void game::run() {
+
+    openWindow();
 
     char pressedTouch;
     printMap();

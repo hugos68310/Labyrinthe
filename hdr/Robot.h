@@ -13,6 +13,8 @@ public:
     void turnRight() ;
     int getD_posX() const;
     int getD_posY() const;
+    virtual bool wallRight() ;
+    virtual bool wallLeft() ;
 
 private:
     int d_posX,d_posY;

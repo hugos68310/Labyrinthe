@@ -60,3 +60,12 @@ int robot::getD_posY() const {
     return d_posY;
 }
 
+bool robot::wallRight() {
+    game::messageBox("Vous n'avez pas le droit d'utiliser cette fonction ici !");
+    return false;
+}
+
+bool robot::wallLeft() {
+    return wallRight();
+}
+

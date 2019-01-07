@@ -9,7 +9,9 @@
 
 int main() {
 
-    game game{"map2.txt"};
+    game game{"map2.txt", true};
+
+    game.run();
 
     return 0;
 }
