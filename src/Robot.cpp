@@ -66,12 +66,12 @@ int robot::getD_posY() const {
 }
 
 bool robot::wallRight() {
-    game::messageBox("Vous n'avez pas cette capacité !");
+    game::messageBox("Vous n'avez pas cette capacite !");
     return false;
 }
 
 bool robot::wallLeft() {
-    game::messageBox("Vous n'avez pas cette capacité !");
+    game::messageBox("Vous n'avez pas cette capacite !");
     return false;
 }
 

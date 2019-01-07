@@ -114,7 +114,7 @@ bool game::isFinish() const {
 void game::messageBox(string message) {
     outtextxy(515, 870, "                                                                                                                                                              ");
     char text[message.size()];
-    for(int i = 0; i < message.size(); i++)
+    for(int i = 0; i <= message.size(); i++)
         text[i] = message[i];
     setcolor(LIGHTBLUE);
     settextstyle(TRIPLEX_FONT, HORIZ_DIR, 2);
