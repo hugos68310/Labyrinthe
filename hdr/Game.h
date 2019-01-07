@@ -20,6 +20,7 @@ public:
     void closeWindow();
     void mainDroite();
     void pledge();
+    void afficheCommandes();
     robot *getD_robot() const;
     bool isD_robotAvance() const;
 

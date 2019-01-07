@@ -31,12 +31,21 @@ void game::run() {
     char pressedTouch;
     openWindow();
 
-    while(!isFinish()){
+    afficheCommandes();
+
+    while(pressedTouch != KEY_ESCAPE) {
+
         printMap();
-        pressedTouch = (char) getch();
-        controles(pressedTouch);
-        clearviewport();
+
+        if (isFinish()) {
+            messageBox("Felicitations vous avez trouve la sortie !");
+            pressedTouch = (char) getch();
+        }else {
+            pressedTouch = (char) getch();
+            controles(pressedTouch);
+        }
     }
+
 }
 
 bool game::isFinish() const {
@@ -45,11 +54,13 @@ bool game::isFinish() const {
 }
 
 void game::messageBox(string message) {
+    outtextxy(515, 870, "                                                                                                                                                              ");
     char text[message.size()];
     for(int i = 0; i < message.size(); i++)
         text[i] = message[i];
+    setcolor(LIGHTBLUE);
     settextstyle(TRIPLEX_FONT, HORIZ_DIR, 2);
-    outtextxy(20, 20, text);
+    outtextxy(515, 870, text);
 }
 
 void game::controles(char pressedTouch) {
@@ -102,8 +113,38 @@ void game::controles(char pressedTouch) {
 
 }
 
+void game::afficheCommandes(){
+
+    setcolor(LIGHTBLUE);
+    settextstyle(TRIPLEX_FONT, HORIZ_DIR, 2);
+    string test;
+
+    test = "|Z| Avancer";
+    outtextxy(20, 200, test.c_str());
+
+    test = "|Q| Tourner à gauche";
+    outtextxy(20, 250, test.c_str());
+
+    test = "|D| Tourner à droite";
+    outtextxy(20, 300, test.c_str());
+
+    test = "|A| Regarder à gauche";
+    outtextxy(20, 350, test.c_str());
+
+    test = "|E| Regarder à droite";
+    outtextxy(20, 400, test.c_str());
+
+    test = "|M| Mode main droite";
+    outtextxy(20, 450, test.c_str());
+
+    test = "|P| Mode Pledge";
+    outtextxy(20, 500, test.c_str());
+
+
+}
+
 void game::openWindow() {
-    opengraphsize(1000, 1000);
+    opengraphsize(1400, 1000);
 }
 
 void game::closeWindow() {

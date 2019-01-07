@@ -50,13 +50,13 @@ void maps::initMap() {
     for (int i = 0; i < 16; ++i) {
         for (int j = 0; j < 16; ++j) {
             switch (d_binaryMap[i][j]){
-                case 0: d_map.push_back(cases{200+i*38,200+j*38,0});
+                case 0: d_map.push_back(cases{200+i*38,400+j*38,0});
                     break;
-                case 1: d_map.push_back(cases{200+i*38,200+j*38,1});
+                case 1: d_map.push_back(cases{200+i*38,400+j*38,1});
                     break;
-                case 2: d_map.push_back(cases{200+i*38,200+j*38,0});
+                case 2: d_map.push_back(cases{200+i*38,400+j*38,0});
                     break;
-                case 3: d_map.push_back(cases{200+i*38,200+j*38,3});
+                case 3: d_map.push_back(cases{200+i*38,400+j*38,3});
                     break;
             }
         }
@@ -65,7 +65,7 @@ void maps::initMap() {
 }
 
 void maps::refreshRobot(int posX, int posY) {
-    d_map.back().setD_left(posX*38+219);
+    d_map.back().setD_left(posX*38+419);
     d_map.back().setD_top(posY*38+219);
 }
 

@@ -8,7 +8,7 @@ class robot{
 public:
     robot(int posX, int posY, maps* map );
     bool wallFront() const;
-    void move() ;
+    bool move() ;
     void turnLeft() ;
     void turnRight() ;
     int getD_posX() const;

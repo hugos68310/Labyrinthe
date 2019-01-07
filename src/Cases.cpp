@@ -45,15 +45,15 @@ void cases::printCases() {
         poly[6] = d_left;
         poly[7] = d_top+38;
         if(d_typeCase==3) {
-            setcolor(BROWN);
+            setcolor(LIGHTGRAY);
             fillpoly(4,poly);
             setcolor(YELLOW);
             circle(d_left+19,d_top+19,13);
         } else if (d_typeCase==0){
-            setcolor(BROWN);
+            setcolor(LIGHTGRAY);
             fillpoly(4,poly);
         } else{
-            setcolor(GREEN);
+            setcolor(LIGHTGREEN);
             fillpoly(4,poly);
         }
     }

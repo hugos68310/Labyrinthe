@@ -37,7 +37,7 @@ void robot::turnRight() {
     d_direction = (d_direction+1)%4;
 }
 
-void robot::move() {
+bool robot::move() {
     if (!wallFront()) {
         switch (d_direction) {
             case 0: d_posY--;
@@ -49,7 +49,11 @@ void robot::move() {
             case 3: d_posX--;
                 break;
         }
-    } else game::messageBox("Il y a un mur devant !");
+        return true;
+    } else{
+        game::messageBox("Il y a un mur devant !");
+        return false;
+    }
 }
 
 int robot::getD_posX() const {
