@@ -18,7 +18,7 @@ int main() {
 
     char c;
 
-    initwindow(1920, 1080);
+    opengraphsize(1920, 1080);
 
     do{
 
