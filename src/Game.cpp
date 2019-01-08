@@ -20,7 +20,8 @@ game::game(string mapFile, bool robotAvanceBool, bool vueTerrain) :
         d_robotAvance{robotAvanceBool},
         d_vueTerrain{vueTerrain},
         d_map{},
-        d_robot{}
+        d_robot{},
+        d_mapFile{mapFile}
         {
             d_map = new maps(mapFile,this);
             if (d_robotAvance){
@@ -204,6 +205,18 @@ void game::afficheCommandes(){
 
     test = "|P| Mode Pledge";
     outtextxy(20, 500, test.c_str());
+
+    test = "Map : " + d_mapFile;
+    outtextxy(400, 20, test.c_str());
+
+
+    test = "Mode : Robot normal";
+
+    if(d_robotAvance)
+        test = "Mode : Robot avance";
+
+    outtextxy(400, 50, test.c_str());
+
 }
 
 void game::openWindow() {

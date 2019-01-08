@@ -29,6 +29,7 @@ private:
     robot* d_robot;
     bool d_robotAvance, d_vueTerrain;
     // Si d_vue Terrain=false alors on a une vue Robot
+    string d_mapFile;
 };
 
 
