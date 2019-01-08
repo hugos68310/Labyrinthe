@@ -3,8 +3,8 @@
 #include <iostream>
 #include <graphics.h>
 #include <conio.h>
-#include "Launcher.h"
-#include "Game.h"
+#include <Launcher.h>
+#include "hdr/Game.h"
 
 #define KEY_ESCAPE  27
 

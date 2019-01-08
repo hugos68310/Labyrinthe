@@ -14,7 +14,6 @@ public:
     cases(int top, int left, int typeCase);
     cases(int top, int left, int typeCase, game *game);
     void printCases();
-    int getTypeCase() const;
     void setD_top(int d_top);
     void setD_left(int d_left);
 

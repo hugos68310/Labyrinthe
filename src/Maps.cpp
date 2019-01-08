@@ -14,8 +14,11 @@ maps::maps(string mapFile,game* game) :
     initBinaryMap(); //initialisation du tableau 2D "maps" 16*16 du terrain qui representera la carte
     readFile(mapFile);//Ouverture d'un fichier txt qui contiendra la carte du jeu en valeurs INT
     printBinaryMap();
-    initMap();
-    refreshRobot(d_posXRobot,d_posYRobot);
+    if (d_game->isD_vueTerrain()){
+        initMap();
+        refreshRobot(d_posXRobot,d_posYRobot);
+    }
+    else initMapRobot();
 }
 
 void maps::initBinaryMap() {
@@ -62,6 +65,39 @@ void maps::initMap() {
         }
     }
     d_map.push_back(cases{0,0,2,d_game});
+}
+
+void maps::initMapRobot() {
+    d_map.clear();
+    for (int i = 0; i < 16; ++i) {
+        for (int j = 0; j < 16; ++j) {
+            if (j==d_game->getD_robot()->getD_posX()&&i==d_game->getD_robot()->getD_posX()-1){
+                setCaseMapRobot(1, 0, i, j);
+            }else if (j==d_game->getD_robot()->getD_posX()-1&&i==d_game->getD_robot()->getD_posX()){
+                setCaseMapRobot(0, 1, i, j);
+            }else if (j==d_game->getD_robot()->getD_posX()+1&&i==d_game->getD_robot()->getD_posX()){
+                setCaseMapRobot(1, 2, i, j);
+            }else if (j==d_game->getD_robot()->getD_posX()&&i==d_game->getD_robot()->getD_posX()+1){
+                setCaseMapRobot(2, 1, i, j);
+            }
+        }
+    }
+    d_map.push_back(cases{400,400,0});
+    d_map.push_back(cases{300,300,2,d_game});
+}
+
+
+void maps::setCaseMapRobot(int posX, int posY, int i, int j) {
+    switch (d_binaryMap[j][i]){
+        case 0: d_map.push_back(cases{200+posY*200,400+posX*200,0});
+            break;
+        case 1: d_map.push_back(cases{200+posY*200,400+posX*200,1});
+            break;
+        case 2: d_map.push_back(cases{200+posY*200,400+posX*200,0});
+            break;
+        case 3: d_map.push_back(cases{200+posY*200,400+posX*200,3});
+            break;
+    }
 }
 
 void maps::refreshRobot(int posX, int posY) {

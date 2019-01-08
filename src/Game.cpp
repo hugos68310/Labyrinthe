@@ -19,8 +19,8 @@
 game::game(string mapFile, bool robotAvanceBool, bool vueTerrain) :
         d_robotAvance{robotAvanceBool},
         d_vueTerrain{vueTerrain},
-        d_map{},
-        d_robot{}
+        d_map{NULL},
+        d_robot{NULL}
         {
             d_map = new maps(mapFile,this);
             if (d_robotAvance){
@@ -60,6 +60,7 @@ void game::mainDroite() {
             delay(100);
         }
         d_robot->move();
+        //TODO vue robot
         d_map->refreshRobot(d_robot->getD_posX(), d_robot->getD_posY());
         printMap();
         delay(100);
@@ -173,7 +174,7 @@ void game::controles(char pressedTouch) {
             cout << "commande inconnue" << endl;
             break;
     }
-
+//TODO vuerobot
     d_map->refreshRobot(d_robot->getD_posX(), d_robot->getD_posY());
 
 }
@@ -225,4 +226,8 @@ robot *game::getD_robot() const {
 
 bool game::isD_robotAvance() const {
     return d_robotAvance;
+}
+
+bool game::isD_vueTerrain() const {
+    return d_vueTerrain;
 }

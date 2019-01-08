@@ -19,6 +19,8 @@ public:
     int getD_posYRobot() const;
     int ** getD_binaryMap() const;
     void refreshRobot(int posX,int posY);
+    void initMapRobot();
+    void setCaseMapRobot(int posX, int posY, int i, int j);
     const vector<cases> getD_map() const;
 
 private:

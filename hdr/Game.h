@@ -13,6 +13,9 @@ public:
     game(string mapFile, bool robotAvanceBool = false, bool vueTerrain = true);
     void run();
     void printMap();
+
+    bool isD_vueTerrain() const;
+
     bool isFinish() const;
     static void messageBox(string message);
     void controles(char pressedTouch);
