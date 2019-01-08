@@ -47,6 +47,7 @@ void game::run() {
             pressedTouch = (char) getch();
             controles(pressedTouch);
         }
+
     }
 }
 

@@ -13,7 +13,7 @@ int numeroMap = 1;
 launcher::launcher():
     d_robotAvance{false},
     d_mapFile{"map1.txt"},
-    d_vue{true}
+    d_vueTerrain{true}
 {
 
 }
@@ -25,7 +25,7 @@ void launcher::run() {
 
     messageRobot("Normal");
     messageMap(d_mapFile);
-    messageVue("Vue Robot");
+    messageVue("Vue Terrain");
 
     while(true){
 
@@ -72,11 +72,11 @@ void launcher::controles(char pressedTouch){
 
         case KEY_V:
             cout << "changement de vue" << endl;
-            d_vue = !d_vue;
-            if(d_vue)
-                messageVue("Vue Robot");
-            else
+            d_vueTerrain = !d_vueTerrain;
+            if(d_vueTerrain)
                 messageVue("Vue Terrain");
+            else
+                messageVue("Vue Robot");
             break;
 
         case KEY_ESCAPE:
