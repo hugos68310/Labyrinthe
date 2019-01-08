@@ -19,7 +19,7 @@ cases::cases(int top, int left, int typeCase, game *game):
 
 void cases::printCases() {
     if (d_typeCase==2){
-        setcolor(RED);
+        setcolor(BLUE);
         fillellipse(d_left,d_top,8,8);
         if (d_game->isD_robotAvance()){
             setcolor(BLUE);
