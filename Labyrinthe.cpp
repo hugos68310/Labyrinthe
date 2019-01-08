@@ -6,8 +6,6 @@
 #include "Launcher.h"
 #include "Game.h"
 
-#define KEY_ESCAPE  27
-
 int main() {
 
     launcher launcher{};
