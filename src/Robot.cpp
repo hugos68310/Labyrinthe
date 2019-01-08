@@ -29,6 +29,7 @@ bool robot::wallFront(bool move) const {
         game::messageBox("Il n'y a pas de mur en face !");
         return false;
     }
+    return false;
 }
 
 void robot::turnLeft() {

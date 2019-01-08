@@ -47,7 +47,7 @@ void cases::printCases() {
         if(d_typeCase==3) {
             setcolor(LIGHTGRAY);
             fillpoly(4,poly);
-            setcolor(YELLOW);
+            setcolor(BROWN);
             circle(d_left+19,d_top+19,13);
         } else if (d_typeCase==0){
             setcolor(LIGHTGRAY);

@@ -17,7 +17,7 @@ public:
 private:
     string d_mapFile;
     bool d_robotAvance;
-    bool d_vue;
+    bool d_vueTerrain;
 };
 
 #endif //LABYRINTHE_LAUNCHER_H
