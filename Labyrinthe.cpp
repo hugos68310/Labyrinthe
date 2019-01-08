@@ -3,15 +3,15 @@
 #include <iostream>
 #include <graphics.h>
 #include <conio.h>
-#include "hdr/Game.h"
+#include "Launcher.h"
+#include "Game.h"
 
 #define KEY_ESCAPE  27
 
 int main() {
 
-    game game{"map1.txt", true};
+    launcher launcher{};
 
-    game.run();
-
+    launcher.run();
     return 0;
 }

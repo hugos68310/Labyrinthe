@@ -5,6 +5,8 @@
 #include "Robot.h"
 #include "Game.h"
 
+class game;
+
 using namespace std;
 
 class cases {

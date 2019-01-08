@@ -18,4 +18,4 @@ add_executable(Labyrinthe
         src/Robot.cpp
         src/RobotAvance.cpp
         src/winbgi.cpp
-        Labyrinthe.cpp)
+        Labyrinthe.cpp hdr/Launcher.h src/Launcher.cpp)

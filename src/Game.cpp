@@ -40,7 +40,7 @@ void game::run() {
         printMap();
 
         if (isFinish()) {
-            messageBox("Felicitations vous avez trouve la sortie !");
+            messageBox("Felicitations vous avez trouve la sortie ! ESC pour sortir");
             pressedTouch = (char) getch();
         }else {
             pressedTouch = (char) getch();
@@ -112,13 +112,13 @@ bool game::isFinish() const {
 }
 
 void game::messageBox(string message) {
-    outtextxy(515, 870, "                                                                                                                                                              ");
+    outtextxy(450, 870, "                                                                                                                                                              ");
     char text[message.size()];
     for(int i = 0; i <= message.size(); i++)
         text[i] = message[i];
     setcolor(LIGHTBLUE);
     settextstyle(TRIPLEX_FONT, HORIZ_DIR, 2);
-    outtextxy(515, 870, text);
+    outtextxy(450, 870, text);
 }
 
 void game::controles(char pressedTouch) {
@@ -136,7 +136,7 @@ void game::controles(char pressedTouch) {
             break;
 
         case KEY_Q:
-            cout << "Tourne à gauche" << endl;
+            cout << "Tourne a gauche" << endl;
             d_robot->turnLeft();
             break;
 
@@ -146,27 +146,27 @@ void game::controles(char pressedTouch) {
             break;
 
         case KEY_D:
-            cout << "Tourne à droite" << endl;
+            cout << "Tourne a droite" << endl;
             d_robot->turnRight();
             break;
 
         case KEY_E:
-            cout << "Regarde s'il y a un mur à droite" << endl;
+            cout << "Regarde s'il y a un mur a droite" << endl;
             if(d_robotAvance)
                 d_robot->wallRight();
             break;
 
         case KEY_A:
-            cout << "regarde s'il ya un mur à gauche" << endl;
+            cout << "regarde s'il ya un mur a gauche" << endl;
             if(d_robotAvance)
                 d_robot->wallLeft();
             break;
         case KEY_M:
-            cout << "Mode Main Droite activé" << endl;
+            cout << "Mode Main Droite actif" << endl;
             mainDroite();
             break;
         case KEY_P:
-            cout << "Mode Pledge activé" << endl;
+            cout << "Mode Pledge actif" << endl;
             pledge();
             break;
         default:
@@ -187,16 +187,16 @@ void game::afficheCommandes(){
     test = "|Z| Avancer";
     outtextxy(20, 200, test.c_str());
 
-    test = "|Q| Tourner à gauche";
+    test = "|Q| Tourner a gauche";
     outtextxy(20, 250, test.c_str());
 
-    test = "|D| Tourner à droite";
+    test = "|D| Tourner a droite";
     outtextxy(20, 300, test.c_str());
 
-    test = "|A| Regarder à gauche";
+    test = "|A| Regarder a gauche";
     outtextxy(20, 350, test.c_str());
 
-    test = "|E| Regarder à droite";
+    test = "|E| Regarder a droite";
     outtextxy(20, 400, test.c_str());
 
     test = "|M| Mode main droite";
